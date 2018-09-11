@@ -13,10 +13,17 @@
     <![endif]-->
     
     <script>
-    var host = "twigley.github.io";
-    if ((host == window.location.host) && (window.location.protocol = "http:"))
-    window.location.protocol = "https";
+      (function (root) {
+	     "use strict";
+	     var h = root ? root.location.hostname : "",
+	     p = root ? root.location.protocol : "";
+	     if ("http:" === p) {
+		       root.location.protocol = "https:";
+	     }
+     }
+	        ("undefined" !== typeof window ? window : this));
     </script>
+    
   </head>
   <body>
     <div class="wrapper">
